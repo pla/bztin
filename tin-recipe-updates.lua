@@ -1,4 +1,4 @@
-local util = require("data-util");
+local util = require("__bztin__.data-util");
 
 
 -- Space Age
@@ -66,6 +66,8 @@ if mods.Krastorio2 then
   util.replace_some_ingredient("kr-glass", "kr-sand", 1, "tin-plate", 1)
   util.add_product("kr-glass", {type="item", name="tin-plate", amount=1, catalyst_amount=1, probability=0.8})
   util.set_main_product("kr-glass", "kr-glass")
+  -- K2 defaults to
+  util.replace_ingredient("tin-plate","tin-ore","tin-ore", 2)
 else 
   if mods.bzfoundry then
     if not mods.bzaluminum then
