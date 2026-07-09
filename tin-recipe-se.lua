@@ -1,5 +1,5 @@
 -- Additional recipes if Space Exploration mod is enabled
-local util = require("data-util");
+local util = require("data-util")
 
 if mods["space-exploration"] then
   se_delivery_cannon_recipes["tin-ore"] = {name= "tin-ore"}
@@ -42,7 +42,7 @@ if string.sub(mods["space-exploration"], 1, 3) == "0.6" then
   },
   {
     type = "recipe",
-    category = "smelting",
+    categories = {"smelting"},
     name = "molten-tin",
     subgroup = "tin",
     results = {
@@ -61,7 +61,7 @@ if string.sub(mods["space-exploration"], 1, 3) == "0.6" then
   {
     type = "recipe",
     name = "tin-ingot",
-    category = "casting",
+    categories = {"casting"},
     results = {{"tin-ingot", 1}},
     energy_required = 18.75,
     ingredients = {
@@ -73,7 +73,7 @@ if string.sub(mods["space-exploration"], 1, 3) == "0.6" then
   },
   {
     type = "recipe",
-    category = "crafting",
+    categories = {"crafting"},
     name = "tin-ingot-to-plate",
 
     icons = {
@@ -93,57 +93,63 @@ if string.sub(mods["space-exploration"], 1, 3) == "0.6" then
     order = "a-c-b"
   },
   })
-  util.add_effect("se-pyroflux-smelting", {type = "unlock-recipe", recipe= "molten-tin"})
-  util.add_effect("se-pyroflux-smelting", {type = "unlock-recipe", recipe= "tin-ingot"})
-  util.add_effect("se-pyroflux-smelting", {type = "unlock-recipe", recipe= "tin-ingot-to-plate"})
-  util.add_effect("se-vulcanite-smelting", {type = "unlock-recipe", recipe= "molten-tin"})
-  util.add_effect("se-vulcanite-smelting", {type = "unlock-recipe", recipe= "tin-ingot"})
-  util.add_effect("se-vulcanite-smelting", {type = "unlock-recipe", recipe= "tin-ingot-to-plate"})
-  if mods["Krastorio2"] then
-    util.set_item_subgroup("enriched-tin", "tin")
-    data.raw.recipe["enriched-tin-plate"].order= "d[tin-plate]"
-    se_delivery_cannon_recipes["enriched-tin"] = {name= "enriched-tin"}
-  end
-  se_delivery_cannon_recipes["tin-ingot"] = {name= "tin-ingot"}
+    util.add_effect("se-pyroflux-smelting", { type = "unlock-recipe", recipe = "molten-tin" })
+    util.add_effect("se-pyroflux-smelting", { type = "unlock-recipe", recipe = "tin-ingot" })
+    util.add_effect("se-pyroflux-smelting", { type = "unlock-recipe", recipe = "tin-ingot-to-plate" })
+    util.add_effect("se-vulcanite-smelting", { type = "unlock-recipe", recipe = "molten-tin" })
+    util.add_effect("se-vulcanite-smelting", { type = "unlock-recipe", recipe = "tin-ingot" })
+    util.add_effect("se-vulcanite-smelting", { type = "unlock-recipe", recipe = "tin-ingot-to-plate" })
+    if mods["Krastorio2"] then
+      util.set_item_subgroup("enriched-tin", "tin")
+      data.raw.recipe["enriched-tin-plate"].order = "d[tin-plate]"
+      se_delivery_cannon_recipes["enriched-tin"] = { name = "enriched-tin" }
+    end
+    se_delivery_cannon_recipes["tin-ingot"] = { name = "tin-ingot" }
 
 else
-  data.raw.item["tin-plate"].subgroup = "plates"
+    data.raw.item["tin-plate"].subgroup = "plates"
   if mods["Krastorio2"] then
 
-    data:extend({
-    {
-      type = "recipe",
-      name = "enriched-tin-smelting-vulcanite",
-      category = "smelting",
-      order = "d[tin-plate]",
-      energy_required = 18,
-      enabled = false,
-      always_show_made_in = true,
-      allow_as_intermediate = false,
-      ingredients = {
-        {name = "enriched-tin", amount = 8},
-        {name = "se-vulcanite-block", amount = 1},
-      },
-      results = {
-        {name = "tin-plate", amount = 12},
-      },
-      icons =
-      {
-        { icon = "__bztin__/graphics/icons/tin-plate.png", icon_size = 128},
-        { icon = "__space-exploration-graphics__/graphics/icons/vulcanite-block.png", icon_size = 64, scale=0.25, shift= {-10, -10}},
-      },
-    },
-    })
-    table.insert(data.raw.technology["se-processing-vulcanite"].effects, 
-        {type = "unlock-recipe", recipe= "enriched-tin-smelting-vulcanite"})
-    data.raw.recipe["enriched-tin-plate"].order= "d[tin-plate]"
-    se_delivery_cannon_recipes["enriched-tin"] = {name= "enriched-tin"}
+      data:extend({
+        {
+          type = "recipe",
+          name = "enriched-tin-smelting-vulcanite",
+          categories = { "smelting" },
+          order = "d[tin-plate]",
+          energy_required = 18,
+          enabled = false,
+          always_show_made_in = true,
+          allow_as_intermediate = false,
+          ingredients = {
+            { name = "enriched-tin", amount = 8 },
+            { name = "se-vulcanite-block", amount = 1 },
+          },
+          results = {
+            { name = "tin-plate", amount = 12 },
+          },
+          icons = {
+            { icon = "__bztin__/graphics/icons/tin-plate.png", icon_size = 128 },
+            {
+              icon = "__space-exploration-graphics__/graphics/icons/vulcanite-block.png",
+              icon_size = 64,
+              scale = 0.25,
+              shift = { -10, -10 },
+            },
+          },
+        },
+      })
+      table.insert(
+        data.raw.technology["se-processing-vulcanite"].effects,
+        { type = "unlock-recipe", recipe = "enriched-tin-smelting-vulcanite" }
+      )
+      data.raw.recipe["enriched-tin-plate"].order = "d[tin-plate]"
+      se_delivery_cannon_recipes["enriched-tin"] = { name = "enriched-tin" }
   else
     data:extend({
     {
       type = "recipe",
       name = "tin-smelting-vulcanite",
-      category = "smelting",
+      categories = {"smelting"},
       order = "d[tin-plate]",
       energy_required = 18,
       enabled = false,

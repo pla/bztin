@@ -1,4 +1,4 @@
-local util = require("__bztin__.data-util");
+local util = require("__bztin__.data-util")
 
 
 -- Space Age
@@ -64,7 +64,7 @@ util.add_ingredient("se-holmium-solenoid", "solder", 2)
 -- glass
 if mods.Krastorio2 then
   util.replace_some_ingredient("kr-glass", "kr-sand", 1, "tin-plate", 1)
-  util.add_product("kr-glass", {type="item", name="tin-plate", amount=1, catalyst_amount=1, probability=0.8})
+  util.add_product("kr-glass", {type="item", name="tin-plate", amount=1, catalyst_amount=1, independent_probability=0.8})
   util.set_main_product("kr-glass", "kr-glass")
   -- K2 defaults to
   util.replace_ingredient("tin-plate","tin-ore","tin-ore", 2)
@@ -77,20 +77,20 @@ else
 
     -- aai
     util.replace_some_ingredient("glass-from-sand", "sand", 1, "tin-plate", 1)
-    util.add_product("glass-from-sand", {type="item", name="tin-plate", amount=1, catalyst_amount=1, probability=0.8})
+    util.add_product("glass-from-sand", {type="item", name="tin-plate", amount=1, catalyst_amount=1, independent_probability=0.8})
     util.set_main_product("glass-from-sand", "glass")
     util.set_category("glass-from-sand", "basic-founding")
 
     -- sand and glass
     util.replace_some_ingredient("sng-glass-plate", "sng-sand", 1, "tin-plate", 1)
-    util.add_product("sng-glass-plate", {type="item", name="tin-plate", amount=1, catalyst_amount=1, probability=0.8})
+    util.add_product("sng-glass-plate", {type="item", name="tin-plate", amount=1, catalyst_amount=1, independent_probability=0.8})
     util.set_main_product("sng-glass-plate", "sng-glass-plate")
     util.set_category("sng-glass-plate", "basic-founding")
   end
 end
 -- -- NOTE: K2 seems to reset this recipe, so moved to final fixes:
 -- util.replace_some_ingredient("se-glass-vulcanite", "sand", 1, "tin-plate", 1)
--- util.add_product("se-glass-vulcanite", {type="item", name="tin-plate", amount=1, probability=0.8})
+-- util.add_product("se-glass-vulcanite", {type="item", name="tin-plate", amount=1, independent_probability=0.8})
 -- util.set_main_product("se-glass-vulcanite", "glass")
 --
 -- 248k in /compatibility dir
@@ -102,7 +102,7 @@ util.replace_some_ingredient("kr-steel-pipe-to-ground", "steel-plate", 3, "solde
 util.replace_ingredient("kr-biomass", "petroleum-gas", "organotins")
 
 
-util.add_product("se-scrap-recycling", {type="item", name="tin-ore", amount=1, probability=0.05})
+util.add_product("se-scrap-recycling", {type="item", name="tin-ore", amount=1, independent_probability=0.05})
 util.add_ingredient("se-experimental-alloys-data", "tin-plate", 1)
 util.add_to_product("se-experimental-alloys-data", "se-experimental-alloys-data", 1)
 util.add_to_product("se-experimental-alloys-data", "se-scrap", 1)

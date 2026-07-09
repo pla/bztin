@@ -1,15 +1,15 @@
 -- Aluminum smelting
 
 local item_sounds = require('__base__.prototypes.item_sounds')
-local util = require("data-util");
-local futil = require("util");
+local util = require("data-util")
+local futil = require("util")
 
 if (not mods["pyrawores"] and not mods["bobplates"] and not mods["angelssmelting"] ) then
 data:extend({
   {
     type = "recipe",
     name = "tin-plate",
-    category = "smelting",
+    categories = {"smelting"},
     order = "d[tin-plate]",
     icons = (mods["Krastorio2"] and
         {
@@ -86,7 +86,7 @@ data:extend({
   {
     type = "recipe",
     name = "solder",
-    category = mods["space-age"] and "electronics" or "crafting",
+    categories = mods["space-age"] and {"electronics"} or {"crafting"},
     order = "d[solder]",
     enabled = true,
     energy_required = 1,
@@ -101,7 +101,7 @@ data:extend({
   {
     type = "recipe",
     name = "casting-solder",
-    category = "metallurgy",
+    categories = {"metallurgy"},
     subgroup = "vulcanus-processes",
     order = "z[casting]-d[casting-solder]",
     icons = {
@@ -189,7 +189,7 @@ data:extend({
   {
     type = "recipe",
     name = "organotins",
-    category = "chemistry",
+    categories = {"chemistry"},
     subgroup = "fluid-recipes",
     order = "h[organotins]",
     enabled = false,
@@ -241,7 +241,7 @@ data:extend({
   {
     type = "recipe",
     name = "tinned-cable",
-    category = "crafting",
+    categories = {"crafting"},
     order = "d[tinned-cable]",
     enabled = false,
     energy_required = 1.5,
@@ -294,7 +294,7 @@ data:extend({
   {
     type = "recipe",
     name = "bronze-plate",
-    category = "advanced-crafting",
+    categories = {"advanced-crafting"},
     order = "d[bronze-plate]",
     enabled = false,
     energy_required = 60,
@@ -315,7 +315,7 @@ data:extend({
   {
     type = "recipe",
     name = "casting-bronze",
-    category = "metallurgy",
+    categories = {"metallurgy"},
     subgroup = "vulcanus-processes",
     order = "b[casting]-d[casting-tin-bronze]",
     icons = {
@@ -359,7 +359,7 @@ data:extend({
     type = "recipe",
     name = "tin-sulfides",
     subgroup = "vulcanus-processes",
-    category = "chemistry",
+    categories = {"chemistry"},
     main_product = "tin-sulfides",
     enabled = false,
     allow_productivity = true,
@@ -385,7 +385,7 @@ data:extend({
     type = "recipe",
     name = "tin-sulfide-processing",
     subgroup = "vulcanus-processes",
-    category = "chemistry",
+    categories = {"chemistry"},
     main_product = "tin-ore",
     enabled = false,
     allow_productivity = true,
@@ -421,7 +421,7 @@ data:extend({
   {
     type = "recipe",
     name = "molten-tin",
-    category = "metallurgy",
+    categories = {"metallurgy"},
     subgroup = "vulcanus-processes",
     order = "a[melting]-d[molten-tin]",
     auto_recycle = false,
@@ -440,7 +440,7 @@ data:extend({
   {
     type = "recipe",
     name = "casting-tin",
-    category = "metallurgy",
+    categories = {"metallurgy"},
     subgroup = "vulcanus-processes",
     order = "b[casting]-d[casting-tin]",
     icons = {
@@ -476,7 +476,7 @@ data:extend({
     stack_size = util.get_stack_size(100),
     spoil_result = "spoilage",
     spoil_ticks = 54000,
-    fuel_category = "chemical",
+    fuel_categories = {"chemical"},
     fuel_value = "1MJ",
     inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
     pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
@@ -488,7 +488,7 @@ data:extend({
   {
     type = "recipe",
     name = "jellyskin-processing",
-    category = "organic",
+    categories = {"organic"},
     subgroup = "agriculture-processes",
     order = "e[agriculture]-a[tin]",
     icons = {
@@ -511,7 +511,7 @@ data:extend({
   {
     type = "recipe",
     name = "tin-from-organotins",
-    category = "organic",
+    categories = {"organic"},
     subgroup = "agriculture-processes",
     order = "e[agriculture]-a[tin]",
     icons = {
@@ -553,7 +553,7 @@ data:extend({
       {icon = "__space-age__/graphics/icons/metallic-asteroid-crushing.png", icon_size=64},
       {icon="__bztin__/graphics/icons/tin-ore.png", icon_size=64, scale =0.25, shift = {0,4}},
     },
-    category = "crushing",
+    categories = {"crushing"},
     subgroup="space-crushing",
     order = "b-a-a",
     auto_recycle = false,
@@ -566,7 +566,7 @@ data:extend({
     results =
     {
       {type = "item", name = "tin-ore", amount = 15},
-      {type = "item", name = "metallic-asteroid-chunk", amount = 1, probability = 0.2}
+      {type = "item", name = "metallic-asteroid-chunk", amount = 1, independent_probability = 0.2}
     },
     allow_productivity = true,
     allow_decomposition = false

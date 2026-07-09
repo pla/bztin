@@ -15,7 +15,7 @@ function generate_alloy_separation_recipe(alloy, recipe)
   {
     type = "recipe",
     subgroup = "alloy-separation",
-    category = "recycling"
+    categories = {"recycling"}
   }
 
   if recipe.result or recipe.results then

@@ -1,5 +1,5 @@
 -- Enriched Lead for Krastorio2
-local util = require("data-util");
+local util = require("data-util")
 
 if mods["Krastorio2"] then
 data:extend(
@@ -25,7 +25,7 @@ data:extend(
     main_product="enriched-tin",
     icon = "__bztin__/graphics/icons/enriched-tin.png",
     icon_size = 128,
-    category = "chemistry",
+    categories = {"chemistry"},
     energy_required = 3,
     enabled = false,
     always_show_made_in = true,
@@ -61,7 +61,7 @@ data:extend(
         { icon = "__bztin__/graphics/icons/tin-plate.png", icon_size = 128 },
         { icon = "__bztin__/graphics/icons/enriched-tin.png", icon_size = 128, scale=0.125, shift= {-8, -8}},
       },
-      category = "smelting",
+      categories = {"smelting"},
       energy_required = 16,
       enabled = false,
       always_show_made_in = true,
@@ -74,7 +74,7 @@ data:extend(
 	{
 		type = "recipe",
 		name = "dirty-water-filtration-tin",
-		category = "kr-fluid-filtration",
+		categories = {"kr-fluid-filtration"},
 		icons =
 		{
 			{
@@ -101,8 +101,8 @@ data:extend(
 		results =
 		{
 			{type = "fluid", name = "water", amount = 90, catalyst_amount = 90},
-			{type = "item",  name = "stone", probability = 0.40, amount = 1},
-			{type = "item",  name = "tin-ore", probability = 0.10, amount = 1},
+			{type = "item",  name = "stone", independent_probability = 0.40, amount = 1},
+			{type = "item",  name = "tin-ore", independent_probability = 0.10, amount = 1},
 		},
 		crafting_machine_tint =
 		{
